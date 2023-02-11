@@ -13,6 +13,9 @@ about:
     - icon: github
       text: Github
       href: https://github.com
+    - icon: kay
+      text: Kay
+      href: https://www.google.com/url?sa=i&url=https%3A%2F%2Ffunnytab.net%2Fgoogle&psig=AOvVaw2K_GipUqrT9u4ZxxUCMwnt&ust=1676230378770000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNCYrfaajv0CFQAAAAAdAAAAABAD
 
 ---
 
