@@ -2,65 +2,33 @@ import numpy as np
 import random as random
 
 class Perceptron:
-    def __init__(self):
-        pass
-        
-    #My Code
-    def fit(self,X,y, max_steps = 1000):
-        #code here
-        #pick a random w
-        #x.shape gives number of rows and number of columns
-        #x has n observations (rows) and p features (columns)
-        p_features, n_samples = X.shape
-        w = np.random.rand(p_features) # w are weights
-        
-        self.history = []
 
-        for step in range(max_steps) :
-            # Compute the predicted label
-            i = random.randint(0,n_samples-1)
-            xi = X[i,:]
-            yi = y[i]
-            #xi = np.append(X[i], [1])
-            wi = w[i,:]
-            print(wi.shape)
-            w_sq = np.append(wi, [-1])
-            # xi = X[i].view().push(1)
-            # w_sq = self.w.view().push(-1)
-            z = np.dot(xi, w[i])
-            if(z.all()*y[i] < 0):
-                y_pred = 1
-            else:
-                y_pred = 0
-            print(w.shape)
-            print(y[i].shape)
-            print(xi.shape)
-            w = w + y_pred*y[i]*xi
-            score = self.score(X,y)
-            if(score == 1):
+    def __init__(self):
+         pass
+    
+    def fit(self, X, y, max_steps = 1000):
+        n_samples, p_features = X.shape
+        X_sq = np.column_stack([np.ones(n_samples), X])
+        self.w = np.zeros(p_features+1)
+        self.history = []
+        
+        for step in range(max_steps):
+            pred = np.sign(X_sq.dot(self.w))
+            error = (y != pred).astype(int)
+            accuracy = 1 - np.mean(error)
+            self.history.append(accuracy)
+            
+            if np.all(pred == y):
                 break
-            self.history.push(score)
-    
-    def predict(self,X):
-        p_features = X.shape[0]
-        n_samples = X.shape[1]
-        y = []
-        for i in range(n_samples):
-            xi = np.append(X[i], [1])
-            w_sq = np.append(w[i], [-1])
-            if(np.dot(xi,w_sq)>=0):
-                y.append(y, [1])
-                #y.push(1)
-            else:
-                y.append(y, [0])
-        return y
-    
-    def score(self,X,y):
-        p_features = X.shape[0]
-        n_samples = X.shape[1]
-        y_pred = self.predict(X)
-        score = 0
-        for i in range(n_samples):
-            if(y_pred[i] == y[i]):
-                score += 1
-        return score/n_samples
+                
+            index = np.random.choice(range(n_samples), size = 1)
+            self.w += error[index]*X_sq[index,:].reshape(-1)
+
+    def predict(self, X):
+        n_samples, p_features = X.shape
+        X_sq = np.column_stack([np.ones(n_samples), X])
+        return ((X_sq.dot(self.w)) >= 0).astype(int)
+
+    def score(self, X, y):
+        y_hat = self.predict(X)
+        return np.mean(y == y_hat)
