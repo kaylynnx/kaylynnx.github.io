@@ -26,5 +26,40 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "posts/Gradient.html",
+    "href": "posts/Gradient.html",
+    "title": "My Awesome CSCI 0451 Blog",
+    "section": "",
+    "text": "from solutions.logistic import LogisticRegression # your source code\nfrom sklearn.datasets import make_blobs\nfrom matplotlib import pyplot as plt\nimport numpy as np\nnp.seterr(all='ignore') \n\n# make the data\np_features = 3\nX, y = make_blobs(n_samples = 200, n_features = p_features - 1, centers = [(-1, -1), (1, 1)])\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\nModuleNotFoundError: No module named 'solutions'"
+  },
+  {
+    "objectID": "posts/Perceptron/Perceptron.html",
+    "href": "posts/Perceptron/Perceptron.html",
+    "title": "My Awesome CSCI 0451 Blog",
+    "section": "",
+    "text": "# n_samples, p_features = X.shape\n# print(n_samples)\n# print(p_features)\n# w = np.random.rand(p_features + 1) # w are weights\n# print(w)\n\n# z = np.random.randint(2, size=3)\n# print(z)\n# zz = z <= 0\n# print(zz)\n# zzz = np.random.randint(3, size=3)\n# print(zzz)\n# print(zzz * zz)\n\n10\n2\n[0.80037024 0.90372254 0.02467621]\n\n\n\n# def predict(X):\n#     # p_features = X.shape[0]\n#     # n_samples = X.shape[1]\n#     #y = []\n#     #for i in range(n_samples):\n#     #    xi = np.append(X[i], [1])\n#     #    w_sq = np.append(w, [-1])\n#     #    y.push(np.sum( xi * w_sq ))\n#     #return y\n#     pred = X * w < 1\n#     #print(f'Pred-times = {pred}')\n#     return pred[:, 1] * 1\n\n# def score(X,y):\n#     y_pred = predict(X)\n#     #print(f'y-pred={y_pred}')\n#     compare = y_pred == y\n#     #print(f'compare={compare}')\n#     return np.sum(compare) / n_samples\n    \n\n\n# history = []\n# max_steps = 1000\n\n# for step in range(max_steps) :\n#     # Compute the predicted label\n#     i = random.randint(0,n_samples-1)\n#     X_sq = np.append(X, np.ones((X.shape[0], 1)), 1)\n#     #print(f'{i}: X_sq = {X_sq}')\n#     yi = y[i]\n#     #print(f'yi={yi}')\n#     w_sq = np.random.rand(X_sq.shape[1])\n#     #print(w_sq)\n\n#     y_sq = 2*yi - 1\n\n#     #print(np.dot(X_sq[i], w_sq))\n#     comp = np.dot(X_sq[i], w_sq) * y_sq;\n#     if(comp < 0) :\n#         w_prime = w_sq + y_sq * X_sq[i]\n#     else:\n#         w_prime = w_sq\n#     val = score(X_sq,y_sq)\n#     if(val >= 1):\n#         break\n#     history.append(val)\n# print(w)\n# #print(history[:-10])\n\n[0.80037024 0.90372254 0.02467621]\n\n\n\np = perceptron.Perceptron()\n\np.fit(X, y, 1000)\n\nNameError: name 'score' is not defined\n\n\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\nAttributeError: 'Perceptron' object has no attribute 'w'\n\n\n\n\n\n\n%load_ext autoreload\n%autoreload 2"
+  },
+  {
+    "objectID": "Untitled.html",
+    "href": "Untitled.html",
+    "title": "My Awesome CSCI 0451 Blog",
+    "section": "",
+    "text": "from sklearn.datasets import make_moons, make_circles\nfrom mlxtend.plotting import plot_decision_regions\nfrom sklearn.linear_model import LogisticRegression\nfrom matplotlib import pyplot as plt\nimport numpy as np\nnp.seterr(all=\"ignore\")\n\nX, y = make_circles(200, shuffle = True, noise = 0.1, factor = 0.5)\n\n\nLR = LogisticRegression()\nLR.fit(X,y)\nplot_decision_regions(X,y,clf = LR)\nscore = plt.gca().set_title(f\"Accuracy = {LR.score(X,y)}\")\n\nfig, axarr = plt.subplots(1, 2, figsize=(8, 4))\n\nplot_decision_regions(X, y, clf = LR, ax = axarr[0])\nscore = axarr[0].set_title(f\"Accuracy = {LR.score(X, y)}\")\n\nLR2 = LogisticRegression()\n\nX_ = X**2\nLR2 = LogisticRegression();\nLR2.fit(X_, y)\nplot_decision_regions(X_, y, clf = LR2, ax = axarr[1])\nscore = axarr[1].set_title(f\"Accuracy = {LR2.score(X_, y)}\")\n#\n#\n#\n#"
+  },
+  {
+    "objectID": "Gradient.html",
+    "href": "Gradient.html",
+    "title": "My Awesome CSCI 0451 Blog",
+    "section": "",
+    "text": "from solutions.logistic import LogisticRegression # your source code\nfrom sklearn.datasets import make_blobs\nfrom matplotlib import pyplot as plt\nimport numpy as np\nnp.seterr(all='ignore') \n\n# make the data\np_features = 3\nX, y = make_blobs(n_samples = 200, n_features = p_features - 1, centers = [(-1, -1), (1, 1)])\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\nModuleNotFoundError: No module named 'solutions'"
+  },
+  {
+    "objectID": "Perceptron/Perceptron.html",
+    "href": "Perceptron/Perceptron.html",
+    "title": "My Awesome CSCI 0451 Blog",
+    "section": "",
+    "text": "p = perceptron.Perceptron()\n\np.fit(X, y, 1000)\n\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\n\n%load_ext autoreload\n%autoreload 2\n\n\n# https://github.com/kaylynnx/kaylynnx.github.io"
   }
 ]

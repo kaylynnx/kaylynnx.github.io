@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Gradient.html",
       "/posts/example-blog-post/index.html"
     ]
   }
