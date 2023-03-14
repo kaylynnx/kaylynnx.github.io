@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "My Awesome CSCI 0451 Blog",
     "section": "",
-    "text": "An example blog post illustrating the key techniques you’ll need to demonstrate your learning in CSCI 0451.\n\n\n\n\n\n\nJan 10, 2023\n\n\nPhil Chodrow\n\n\n\n\n\n\nNo matching items"
+    "text": "An example blog post illustrating the key techniques you’ll need to demonstrate your learning in CSCI 0451.\n\n\n\n\n\n\nJan 10, 2023\n\n\nKaylynn Xia\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nAn example blog post illustrating the key techniques you’ll need to demonstrate your learning in CSCI 0451.\n\n\n\n\n\n\nJan 10, 2023\n\n\nPhil Chodrow\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -61,5 +61,19 @@
     "title": "My Awesome CSCI 0451 Blog",
     "section": "",
     "text": "p = perceptron.Perceptron()\n\np.fit(X, y, 1000)\n\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\n\n%load_ext autoreload\n%autoreload 2\n\n\n# https://github.com/kaylynnx/kaylynnx.github.io"
+  },
+  {
+    "objectID": "posts/Perceptron/index.html",
+    "href": "posts/Perceptron/index.html",
+    "title": "Hello Blog",
+    "section": "",
+    "text": "p = perceptron.Perceptron()\n\np.fit(X, y, 1000)\n\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\n\n%load_ext autoreload\n%autoreload 2\n\n\n# https://github.com/kaylynnx/kaylynnx.github.io"
+  },
+  {
+    "objectID": "Perceptron.html",
+    "href": "Perceptron.html",
+    "title": "My Awesome CSCI 0451 Blog",
+    "section": "",
+    "text": "p = perceptron.Perceptron()\n\np.fit(X, y, 1000)\n\n\nfig = plt.scatter(X[:,0], X[:,1], c = y)\nfig = draw_line(p.w, -2, 2)\nxlab = plt.xlabel(\"Feature 1\")\nylab = plt.ylabel(\"Feature 2\")\n\nfig = plt.plot(p.history)\nxlab = plt.xlabel(\"Iteration\")\nylab = plt.ylabel(\"Accuracy\")\n\n\n\n\n\n%load_ext autoreload\n%autoreload 2"
   }
 ]
