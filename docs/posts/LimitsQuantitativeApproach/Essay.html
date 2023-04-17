@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>My Awesome CSCI 0451 Blog – essay</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      color: white;
+background-image: url(../../img/landscape.png);
+background-size: cover;
+    }
+    </style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Awesome CSCI 0451 Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<p>Kaylynn Xia</p>
+<pre><code>As long as humans have existed, technology has been a powerful force. From the wheel to running water to the computer, technology has aided our day-to-day lives. In modern-day technology, since the mid-1900s, technology has expanded past new inventions to more quantitative innovations. The generation of new phones and computers has become relatively stagnant, but the usage of phones and computers to aid our day-to-day lives has exploded. Scientists and businessmen created Machine Learning, more colloquially known as Artificial Intelligence. Artificial Intelligence has been displayed in movies such as Robocop or the recently released horror movie, Megan. These movies depict a universe in which Artificial Intelligence is self-aware and relatively human. While largely exaggerated, we have created machines to learn from data, hence why it is called Machine Learning. Given some historical data or a collection of current data, the machines can generate some sort of conclusion. 
+
+
+Machine Learning is used in the finance industry to uncover credit card fraud, make predictions about creditworthiness, and identify trends in the stock market (Ethical Implications of Bias in Machine Learning). Machine learning has been incredibly productive and helpful to provide important advances in health care and treatment decisions (Ethical Implications of Bias in Machine Learning). The criminal justice system is using machine learning to predict crime hotspots and recidivism rates (Ethical Implications of Bias in Machine Learning). AI and Machine learning has been increasingly widespread. They have been helpful in all aspects of our lives. But with all great innovations, there are unintended consequences. One of the unintended consequences is bias. What is bias? When we think of bias or fairness in a social, political, or economic sense, bias is defined as prejudice against one person, group, or thing in a way classified as ‘unfair’. Essentially, bias in an algorithmic sense, which we coin algorithmic bias, is very similar. Most researchers in this field define algorithmic bias differently. Nevertheless, “most suggestions on how to define model bias statistically consider such societal effects: how classification rates differ for groups of people with different values on a protected attribute such as race, color, religion, gender, disability, or family status” (Bias in Machine Learning – What is it Good For). What does this mean exactly? Well, bias in Machine Learning isn’t so black or white. Instead, the authors of Bias in Machine Learning found that biases can be organized into three distinct categories: “a biased world, data generation, and learning” (Bias in Machine Learning – What is it Good For). Within a biased world, bias may propagate through what people would refer to as historical bias. According to the Australian Human Rights Commission, “historical bias arises when the data used to train an AI system no longer accurately reflects the current reality” (Australian Human Rights Commission). Many obsolete data contain outdated language or ideals. For instance, when we looked at the Titanic data set, we see that sex contained a binary male or female. However, more up-to-date data would also consider those who are non-binary. Secondly, in the data generation category, they found five different sources of bias, including specification bias and inherited bias. Specification bias occurs when a potential independent component is excluded from the general model, resulting in a biased estimate of the coefficients. Inherited bias refers to the underlying assumptions that skew viewpoints and data. Finally, in the learning category, a way bias propagates is through inductive bias. The inductive bias of an algorithm is the set of assumptions the learner uses to predict outputs of given inputs that it has not encountered. That list is just a small, but widespread, list of ways bias presents itself in Machine Learning and algorithms.
+
+
+These biases are reflected in the usage of algorithms in all of the examples I listed above. In finance, machine learning has been used to make predictions about creditworthiness. But what isn’t discussed is how minorities and underrepresented groups are hypothesized to have lower creditworthiness. As a result, it is harder for them to get loans, buy homes, and make investments. Machine learning has also made large advancements in healthcare. But for a while, women were given worse treatment than men because predictions were directed toward men. And POC was given worse treatment than white people because predictions and calculations were made specifically for white people. Machine learning was used in the criminal justice system to predict crime and recidivism rates, but the algorithm was so skewed that the algorithm targeted black individuals in black communities. It turned out that black individuals were given harsher sentences than white individuals for the same crime. But there are also other discriminatory algorithms. A study found that “Amazon’s recruitment tool, which produced AI-based recommendations that significantly favored men over women for technical jobs” (Questioning Racial and Gender Bias in AI-based Recommendations: Do Espoused National Cultural Values Matter?). 
+
+Studying discrimination and prejudice in these algorithms, many researchers have concluded that these quantitative methods are incredibly problematic. One of those researchers is Arvind Narayanan. In his speech, The Limits of the Quantitative Approach to Discrimination, he argues that “currently quantitative methods are primarily used to justify the status quo. I would argue that they do more harm than good” (Arvind Narayanan). While this is a strong statement, Arvind backs up this claim with strong evidence. In his speech, he talks about the practice of quantitative methods. More specifically, he talks about the usage of the null hypothesis. When studying racism, for instance, the null hypothesis is that there is no racism. Similarly, when studying any form of prejudice, the null hypothesis is that there is no prejudice. This is problematic because “baked into the practice of quantitative methods is a worldview that sees the status quo as unproblematic” (Arvind Narayanan). It’s problematic that the null hypothesis is that there is no discrimination because when there is no significant evidence that discrimination exists, people verify and justify the null hypothesis, thus seeing the status quo as something without flaws or issues. And “when researchers pick the null hypothesis on autopilot, mimicking what’s been done before, they are often oblivious to the fact that their choice has enormous normative significance” (Arvind Narayanan). There is also the issue with data. Often the data we use are snapshots from a day or a short period. But snapshots also lose people’s lived experiences because it is not recorded in the data. So, snapshots “frame discrimination as happening at discrete moments in time rather than encoded into the way that our institutions are designed” (Arvind Narayanan). In other words, the data doesn’t paint a holistic image, ignoring systematic and structural discrimination. Another problematic aspect of these quantitative methods is who produces the data. Usually, larger companies and organizations, both of which are arguably biased, gather data. So, “when companies are in control of producing data, they have simple ways of affecting the conclusions that are drawn by controlling which data are collected or released” (Arvind Narayanan). 
+
+These sentiments by Arvind are echoed through other research papers. Dr. Alex Hanna from Harvard University, similar to Arvind, explains that AI research is supporting ‘bad markets’ for a lack of better words. Machine learning, algorithms, and AI are controlled by “large tech companies, elite universities, or specialty labs like Open AI or Anthropic which have these really big VC term sheets and are doing things which they consider to be general-purpose AI or something of that nature” (Dr. Alex Hanna). But the reason this is bad is that it doesn’t allow researchers to be independent or community focused. Instead, it supports a capitalistic society such as corporate uses, supporting their businesses, or directed towards military and security purposes. Thus Dr. Alex Hanna concludes that AI was created for negative reasons. As an example of this, Clearview AI, a large institution, created a widely known and used facial recognition tool for law enforcement. And ShotSpotter detects things like gunshots. These tools are designed to micromanage low-income communities and communities of color. Furthermore, she explains that a lot of the problem lies in the data. She explains that the data “does not provide the full story” (Dr. Alex Hanna). 
+
+Adrienne Yapo and Joseph Weiss of Bentley University expressed similar disdain toward algorithms and machine learning. They suggested that the most significant issue is the “black box” secrecy behind the machine learning algorithms. In other words, the algorithms are not transparent. Why? “For-profit companies that produce these algorithms do not release the criteria and calculations behind the formulas” (Yapo and Weiss). Furthermore, at times the algorithms become so complex that understanding the formulas is extremely difficult. Therefore, since the algorithms are created by humans, “they inevitably – and often unconsciously – reflect societal values, biases, and discriminatory practices” (Yapo and Weiss). Ultimately, while Yapo and Weiss find that AI can be helpful at times, reformation is needed. Inclusivity and awareness of the ethical risks and complications are crucial to the design of AI to ensure that individuals are treated fairly. 
+
+Technology and machine learning have come a long way. They have supported individuals in our day-to-day lives, making them important. However, the current usages of these algorithms and the foundations on which they lie are problematic. I, along with many other researchers and individuals, wouldn’t go as far as to say that the harms outweigh the benefits. There needs change and an ethical discussion, but these algorithms can still be helpful. </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Sources:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>www.cs.princeton.edu<span class="op">/~</span>arvindn<span class="op">/</span>talks<span class="op">/</span>baldwin<span class="op">-</span>discrimination<span class="op">/</span>baldwin<span class="op">-</span>discrimination<span class="op">-</span>transcript.pdf</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>aisel.aisnet.org<span class="op">/</span>cgi<span class="op">/</span>viewcontent.cgi?article<span class="op">=</span><span class="dv">1649</span><span class="op">&amp;</span>context<span class="op">=</span>hicss<span class="op">-</span><span class="dv">51</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>arxiv.org<span class="op">/</span>pdf<span class="op">/</span><span class="fl">2004.00686</span>.pdf </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>link.springer.com<span class="op">/</span>article<span class="op">/</span><span class="fl">10.1007</span><span class="op">/</span>s10796<span class="op">-</span><span class="dv">0</span><span class="er">21</span><span class="op">-</span><span class="dv">10156</span><span class="op">-</span><span class="dv">2</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>www.sir.advancedleadership.harvard.edu<span class="op">/</span>articles<span class="op">/</span>understanding<span class="op">-</span>gender<span class="op">-</span><span class="kw">and</span><span class="op">-</span>racial<span class="op">-</span>bias<span class="op">-</span><span class="kw">in</span><span class="op">-</span>ai</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>humanrights.gov.au<span class="op">/</span>about<span class="op">/</span>news<span class="op">/</span>media<span class="op">-</span>releases<span class="op">/</span>infographic<span class="op">-</span>historical<span class="op">-</span>bias<span class="op">-</span>ai<span class="op">-</span>systems</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
