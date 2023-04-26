@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Kaylynn Xia">
-<meta name="dcterms.date" content="2023-04-19">
-<meta name="description" content="Perceptron Algorithm (edited)">
 
-<title>My Awesome CSCI 0451 Blog - Hello Blog</title>
+<title>My Awesome CSCI 0451 Blog – perceptron</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -172,39 +169,7 @@ background-size: cover;
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Hello Blog</h1>
-                  <div>
-        <div class="description">
-          Perceptron Algorithm (edited)
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Kaylynn Xia </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">April 19, 2023</p>
-      </div>
-    </div>
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -213,9 +178,8 @@ background-size: cover;
 
 
 
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#https://kaylynnx.github.io/posts/Perceptron/Perceptron.html</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#http://kaylynnx.github.io/posts/Perceptron/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>**Quick walk through of my algorithm:</p>
 <p>First, as given to us, I start with making my blobs. I initially start with n = 100. But when I was doing my experimentation, I would change n as I changed the number of features. I wanted to have 50 samples for each feature. I also would remove the centers when I increased the number of features.</p>
@@ -225,7 +189,7 @@ background-size: cover;
 <p>**Experimentation:</p>
 <p>The first set of experimentation that I did was changing the learning rates. Included in my fit function within my Perceptron class, I set the learning rates between 0.001 and 1. I noticed that when I changed my learning rate to 0.001, the perceptron algorithm learned slowly, much slower. However, when I set the perceptron algorithm to 1, the algorithm learned extremely fast, and I couldn’t see the progression of the accuracy. So, the sweet spot was setting the learning rate to 0.1.</p>
 <p>I also increeased the number of features I had to 10. When I did this, I noticed that the accuracy rate toggled in the 30’s (30% or so). This suggests that as I add features, my perceptron learns less accurately. Furthermore, when I increase the number of interations to 2,000 and maintained the number of features at 10, the accurac rate jumped to the 60’s (60% or so). Despite have a larger number of iterations, having a linearly separable graph gets more difficult. With 2 features, 1000 iterations, and a linearly separable graph, I noticed that my algorithm will always converge and produce an accuracy of 1. However, with 2 features, 1000 iterations, and a non-linearly separable graph, my algorithm never converges. The accuracy rate, at one point will stay stagnant.</p>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -235,15 +199,15 @@ background-size: cover;
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 100</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>p_features <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#n = (p_features - 1) * 50</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> (p_features <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">50</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_blobs(n_samples <span class="op">=</span> n, n_features <span class="op">=</span> p_features <span class="op">-</span> <span class="dv">1</span>, centers <span class="op">=</span> [(<span class="op">-</span><span class="fl">1.7</span>, <span class="op">-</span><span class="fl">1.7</span>), (<span class="fl">1.7</span>, <span class="fl">1.7</span>)])</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># X, y = make_blobs(n_samples = n, n_features = p_features - 1)</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Perceptron:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.weights <span class="op">=</span> <span class="va">None</span></span>
@@ -284,7 +248,7 @@ background-size: cover;
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> history(<span class="va">self</span>):</span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.training_history</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-outputid="dedea2ce-aabb-415c-f7a0-7dbfbf109c5c" data-execution_count="3">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Perceptron()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p.fit(X,y, num_iterations <span class="op">=</span> <span class="dv">1000</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -303,7 +267,7 @@ Score: 0.96</code></pre>
 <p><img src="Perceptron_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-outputid="e67f7948-b944-440d-efc7-20457e3481e3" data-execution_count="4">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
