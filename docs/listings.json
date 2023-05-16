@@ -3,11 +3,11 @@
     "listing": "/index.html",
     "items": [
       "/posts/Perceptron/Perceptron.html",
+      "/posts/LimitsQuantitativeApproach/Essay.html",
       "/posts/FinalProject/FinalBlogPost.html",
       "/posts/LinearRegression/LinearRegression.html",
       "/posts/PenguinPost/Penguin.html",
       "/posts/TimnitGebru/TimnitGebru.html",
-      "/posts/LimitsQuantitativeApproach/Essay.html",
       "/posts/example-blog-post/index.html"
     ]
   }
